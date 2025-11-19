@@ -33,6 +33,12 @@ export default function Authenticated({
                 >
                   Dashboard
                 </NavLink>
+                <NavLink
+                  href={route("feature.index")}
+                  active={route().current("feature.index")}
+                >
+                  Features
+                </NavLink>
               </div>
             </div>
 
@@ -83,7 +89,7 @@ export default function Authenticated({
               <button
                 onClick={() =>
                   setShowingNavigationDropdown(
-                    (previousState) => !previousState,
+                    (previousState) => !previousState
                   )
                 }
                 className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition duration-150 ease-in-out hover:bg-gray-100 hover:text-gray-500 focus:bg-gray-100 focus:text-gray-500 focus:outline-none dark:text-gray-500 dark:hover:bg-gray-900 dark:hover:text-gray-400 dark:focus:bg-gray-900 dark:focus:text-gray-400"
@@ -130,6 +136,12 @@ export default function Authenticated({
             >
               Dashboard
             </ResponsiveNavLink>
+            <ResponsiveNavLink
+              href={route("feature.index")}
+              active={route().current("feature.index")}
+            >
+              Features
+            </ResponsiveNavLink>
           </div>
 
           <div className="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600">
@@ -165,8 +177,11 @@ export default function Authenticated({
           </div>
         </header>
       )}
-
-      <main>{children}</main>
+      <div className="py-12">
+        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <main>{children}</main>
+        </div>
+      </div>
     </div>
   );
 }
