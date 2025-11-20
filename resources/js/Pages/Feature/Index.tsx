@@ -16,7 +16,7 @@ export default function Index({
         </h2>
       }
     >
-      <Head title="Dashboard" />
+      <Head title="Features" />
 
       {features.data.map((feature: Feature) => (
         <FeatureItem feature={feature} />
