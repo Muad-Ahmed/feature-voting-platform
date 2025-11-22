@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Resources\FeatureResource;
 use App\Models\Feature;
 use Illuminate\Http\Request;
+use App\Models\Upvote;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class FeatureController extends Controller
 {
@@ -14,7 +17,23 @@ class FeatureController extends Controller
      */
     public function index()
     {
-        $paginated = Feature::latest()->paginate();
+        $currentUserId = Auth::id();
+
+        $paginated = Feature::latest()
+            ->withCount(['upvotes as upvote_count' => function ($query) {
+                $query->select(DB::raw('SUM(CASE WHEN upvote = 1 THEN 1 ELSE -1 END)'));
+            }])
+            ->withExists([
+                'upvotes as user_has_upvoted' => function ($query) use ($currentUserId) {
+                    $query->where('user_id', $currentUserId)
+                        ->where('upvote', 1);
+                },
+                'upvotes as user_has_downvoted' => function ($query) use ($currentUserId) {
+                    $query->where('user_id', $currentUserId)
+                        ->where('upvote', 0);
+                }
+            ])
+            ->paginate();
 
         return Inertia::render('Feature/Index', [
             'features' => FeatureResource::collection($paginated)
@@ -60,6 +79,18 @@ class FeatureController extends Controller
      */
     public function edit(Feature $feature)
     {
+        $feature->upvote_count = Upvote::where('feature_id', $feature->id)
+            ->sum(DB::raw('CASE WHEN upvote = 1 THEN 1 ELSE -1 END'));
+
+        $feature->user_has_upvoted = Upvote::where('feature_id', $feature->id)
+            ->where('user_id', Auth::id())
+            ->where('upvote', 1)
+            ->exists();
+        $feature->user_has_downvoted = Upvote::where('feature_id', $feature->id)
+            ->where('user_id', Auth::id())
+            ->where('upvote', 0)
+            ->exists();
+
         return Inertia::render('Feature/Edit', [
             'feature' => new FeatureResource($feature)
         ]);
