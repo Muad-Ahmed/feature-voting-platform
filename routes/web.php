@@ -8,6 +8,8 @@ use App\Http\Controllers\UpvoteController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Enum\RolesEnum;
+use App\Http\Controllers\UserController;
 
 Route::redirect('/', '/dashboard');
 
@@ -17,7 +19,25 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::middleware(['verified', 'role:' . \App\Enum\RolesEnum::User->value])->group(function () {
+    Route::middleware(['verified', 'role:' . RolesEnum::Admin->value])->group(function () {
+        Route::get('/user', [UserController::class, 'index'])
+            ->name('user.index');
+        Route::get('/user/{user}/edit', [UserController::class, 'edit'])
+            ->name('user.edit');
+        Route::put('/user/{user}', [UserController::class, 'update'])
+            ->name('user.update');
+    });
+
+    Route::middleware([
+        'verified',
+        sprintf(
+            'role:%s|%s|%s',
+            RolesEnum::User->value,
+            RolesEnum::Commenter->value,
+            RolesEnum::Admin->value
+        )
+    ])->group(function () {
+
         Route::get('/dashboard', function () {
             return Inertia::render('Dashboard');
         })->name('dashboard');
