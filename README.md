@@ -29,3 +29,11 @@
 - [License](#license)
 
 ---
+
+## Overview
+
+The **Feature Voting Platform** is a scalable web application designed to help teams, communities, and products collect, organize, and prioritize feature requests. Users can submit ideas, vote on proposals, discuss improvements, and help guide the roadmap transparently.
+
+The platform solves the common problem of unclear development priorities by converting user feedback into measurable, actionable data. It is ideal for SaaS applications, open-source projects, internal product teams, and communities seeking public-driven prioritization.
+
+---
