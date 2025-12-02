@@ -37,3 +37,15 @@ The **Feature Voting Platform** is a scalable web application designed to help t
 The platform solves the common problem of unclear development priorities by converting user feedback into measurable, actionable data. It is ideal for SaaS applications, open-source projects, internal product teams, and communities seeking public-driven prioritization.
 
 ---
+
+## Core Concepts
+
+- **Feature / Proposal:** A user-submitted idea for improvement or a new capability.  
+- **Vote:** A support action registered by users to rank proposals by importance.  
+- **Comment:** A message attached to a proposal to enable discussions.  
+- **Priority:** The system's method of ranking features based on votes, activity, creation date, or custom logic.  
+- **Boards / Projects:** Groupings of related features under a product or module.  
+- **Roles:** Administrator, Moderator, Contributor, or general user roles with different permissions.  
+- **Activity Log:** An audit trail of actions such as submissions, votes, updates, and status changes.
+
+---
