@@ -49,3 +49,19 @@ The platform solves the common problem of unclear development priorities by conv
 - **Activity Log:** An audit trail of actions such as submissions, votes, updates, and status changes.
 
 ---
+
+## Key Features
+
+- User registration, authentication, and optional email verification  
+- Feature submission, editing, moderation, and deletion  
+- Voting system with support for weighted votes (optional)  
+- Commenting with replies, sorting, mentions, and markdown support  
+- Admin dashboard for managing features, categories, users, and tags  
+- Full-text search, advanced filters, and sorting  
+- Responsive UI built with **React + Inertia**  
+- API endpoints for external integrations  
+- Notification system (Email, Webhooks, Push notifications)  
+- Activity logs and audit trails  
+- Seeder data for demo environments
+
+---
