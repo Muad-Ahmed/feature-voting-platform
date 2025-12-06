@@ -66,18 +66,13 @@ The platform solves the common problem of unclear development priorities by conv
 
 ---
 
-## Key Features
+## Architecture
 
-- User registration, authentication, and optional email verification  
-- Feature submission, editing, moderation, and deletion  
-- Voting system with support for weighted votes (optional)  
-- Commenting with replies, sorting, mentions, and markdown support  
-- Admin dashboard for managing features, categories, users, and tags  
-- Full-text search, advanced filters, and sorting  
-- Responsive UI built with **React + Inertia**  
-- API endpoints for external integrations  
-- Notification system (Email, Webhooks, Push notifications)  
-- Activity logs and audit trails  
-- Seeder data for demo environments
+- **Backend:** Laravel (MVC, Events, Policies, Jobs, Notifications)  
+- **Frontend:** React components powered by Inertia.js  
+- **Database:** MySQL / MariaDB (PostgreSQL supported)  
+- **Real-time Support:** Pusher or native WebSocket server  
+- **Storage:** Local filesystem (development), S3-compatible object storage (production)  
+- **CI/CD:** GitHub Actions or similar for automated builds and deployments
 
 ---
