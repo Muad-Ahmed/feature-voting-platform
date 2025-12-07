@@ -76,3 +76,14 @@ The platform solves the common problem of unclear development priorities by conv
 - **CI/CD:** GitHub Actions or similar for automated builds and deployments
 
 ---
+
+## Requirements
+
+- PHP 8.1+ (8.2 or 8.4 recommended)  
+- Composer 2.x  
+- Node.js 16+ and npm or yarn  
+- MySQL 5.7+ / MariaDB 10.2+  
+- Git  
+- (Optional) Docker for isolated development
+
+---
