@@ -94,12 +94,12 @@ The platform solves the common problem of unclear development priorities by conv
    ```bash
    git clone https://github.com/Muad-Ahmed/feature-voting-platform.git
    cd feature-voting-platform
-   
+   ```
 Install backend dependencies:
 
- ```bash
-
-composer install
-cp .env.example .env
-php artisan key:generate
+   ```bash
+   composer install
+   cp .env.example .env
+   php artisan key:generate
+   ```
 Configure .env (details in next section)
