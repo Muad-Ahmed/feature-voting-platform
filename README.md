@@ -87,3 +87,17 @@ The platform solves the common problem of unclear development priorities by conv
 - (Optional) Docker for isolated development
 
 ---
+## Local Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Muad-Ahmed/feature-voting-platform.git
+   cd feature-voting-platform
+Install backend dependencies:
+
+bash
+نسخ الكود
+composer install
+cp .env.example .env
+php artisan key:generate
+Configure .env (details in next section)
