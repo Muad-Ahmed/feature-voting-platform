@@ -103,3 +103,21 @@ Install backend dependencies:
    php artisan key:generate
    ```
 Configure .env (details in next section)
+
+## Local Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Muad-Ahmed/feature-voting-platform.git
+   cd feature-voting-platform
+   ```
+   
+Install backend dependencies:
+
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+Configure .env (details in next section)
+```
+
