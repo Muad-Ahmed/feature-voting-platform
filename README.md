@@ -132,8 +132,9 @@ Install frontend dependencies:
 ```bash
 npm install
 npm run dev
-Start the local server:
 ```
+
+Start the local server:
 
 ```bash
 php artisan serve
