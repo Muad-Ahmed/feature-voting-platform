@@ -121,3 +121,22 @@ php artisan key:generate
 Configure .env (details in next section)
 ```
 
+Setup the database:
+
+```bash
+php artisan migrate
+php artisan db:seed
+Install frontend dependencies:
+```
+
+```bash
+npm install
+npm run dev
+Start the local server:
+```
+
+```bash
+php artisan serve
+Visit: http://localhost:8000
+```
+
