@@ -126,8 +126,9 @@ Setup the database:
 ```bash
 php artisan migrate
 php artisan db:seed
-Install frontend dependencies:
 ```
+
+Install frontend dependencies:
 
 ```bash
 npm install
