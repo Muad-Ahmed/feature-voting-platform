@@ -157,3 +157,20 @@ Email:
 
 MAIL_MAILER, MAIL_HOST, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD
 Broadcasting:
+
+BROADCAST_DRIVER, PUSHER_APP_KEY, PUSHER_APP_SECRET
+Storage Driver:
+
+ini
+
+FILESYSTEM_DRIVER=local|s3
+Queue:
+
+ini
+
+QUEUE_CONNECTION=database|redis
+Notes:
+
+Never commit .env into Git.
+
+Use unique keys for each environment.
