@@ -174,3 +174,21 @@ Notes:
 Never commit .env into Git.
 
 Use unique keys for each environment.
+
+Database & Seeders
+Migrations: database/migrations
+
+Seeders: database/seeders
+
+Useful commands:
+
+```bash
+
+php artisan migrate
+php artisan db:seed
+php artisan migrate:fresh --seed
+
+```
+
+Main tables include:
+users, features, votes, comments, categories, projects, tags, activity_logs
