@@ -146,14 +146,13 @@ Configuration Inside .env, configure essential values:
 
 Application:
 
-
 APP_NAME, APP_ENV, APP_URL
+
 Database:
 
-
 DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD
-Email:
 
+Email:
 
 MAIL_MAILER, MAIL_HOST, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD
 Broadcasting:
@@ -192,3 +191,29 @@ php artisan migrate:fresh --seed
 
 Main tables include:
 users, features, votes, comments, categories, projects, tags, activity_logs
+
+Frontend (React + Inertia)
+React components: resources/js/Components
+
+Pages: resources/js/Pages
+
+Development:
+
+```bash
+npm run dev
+```
+
+Production build:
+
+```bash
+npm run build
+```
+Design recommendations:
+
+Keep components small and reusable
+
+Use context wisely to prevent unnecessary re-renders
+
+Lazy-load large pages
+
+
