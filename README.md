@@ -217,3 +217,35 @@ Use context wisely to prevent unnecessary re-renders
 Lazy-load large pages
 
 
+Testing
+Run all Laravel tests:
+
+```bash
+
+php artisan test
+
+```
+
+Unit tests:
+
+```bash
+
+php artisan test --testsuite=Unit
+
+```
+
+Feature tests:
+
+```bash
+
+php artisan test --testsuite=Feature
+
+```
+
+JS tests (if configured):
+
+```bash
+
+npm run test
+
+```
