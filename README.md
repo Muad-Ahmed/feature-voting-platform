@@ -249,3 +249,22 @@ JS tests (if configured):
 npm run test
 
 ```
+
+Deployment
+A recommended deployment workflow:
+
+In CI:
+
+```bash
+
+npm ci && npm run build
+composer install --no-dev --optimize-autoloader
+```
+
+On server:
+Setup Nginx/Apache with PHP-FPM
+
+Enable HTTPS / SSL
+
+
+
