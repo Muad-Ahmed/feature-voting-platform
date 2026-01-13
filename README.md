@@ -266,5 +266,25 @@ Setup Nginx/Apache with PHP-FPM
 
 Enable HTTPS / SSL
 
+Run migrations:
+
+```bash
+
+php artisan migrate --force
+
+```
+Cache config:
+
+```bash
+
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+```
+Start queue workers using Supervisor or systemd
+
+
+
 
 
