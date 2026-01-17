@@ -285,6 +285,25 @@ php artisan view:cache
 Start queue workers using Supervisor or systemd
 
 
+Configure CRON:
+
+pgsql
+
+* * * * * php /path/to/artisan schedule:run
+Monitoring & Maintenance
+Use external log services (Papertrail, Loggly)
+
+Monitor performance (Datadog, New Relic)
+
+Scheduled tasks:
+
+Log rotation
+
+Clearing old uploads
+
+Monitoring queue length
+
+Scalability & Future Enhancements
 
 
 
