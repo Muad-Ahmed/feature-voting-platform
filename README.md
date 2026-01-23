@@ -319,3 +319,22 @@ OAuth / SSO integration
 Public REST API as standalone module
 
 
+Security Considerations
+Enforce HTTPS + HSTS in production
+
+Validate and sanitize all inputs
+
+Apply rate limiting to posting actions
+
+Enable 2FA for admin accounts
+
+Use GitHub Dependabot or equivalent to detect vulnerabilities
+
+Performance Tips
+Cache heavy queries (Redis recommended)
+
+Store vote count as a computed column to avoid recalculations
+
+Use pagination everywhere
+
+Add database indexes strategically
