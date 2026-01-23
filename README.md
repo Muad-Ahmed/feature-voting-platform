@@ -306,4 +306,16 @@ Monitoring queue length
 Scalability & Future Enhancements
 
 
+Potential future expansions:
+
+Weighted voting based on user roles or reputation
+
+Multi-tenant support
+
+Feature analytics dashboard
+
+OAuth / SSO integration
+
+Public REST API as standalone module
+
 
