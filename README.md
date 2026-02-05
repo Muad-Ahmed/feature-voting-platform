@@ -338,3 +338,15 @@ Store vote count as a computed column to avoid recalculations
 Use pagination everywhere
 
 Add database indexes strategically
+
+
+Troubleshooting
+Common issues:
+
+Slow pages: inspect database queries, enable caching
+
+Queue not running: check Supervisor logs
+
+Mail not sending: verify SMTP settings
+
+Websocket failures: check Pusher credentials or CORS settings
