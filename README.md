@@ -350,3 +350,14 @@ Queue not running: check Supervisor logs
 Mail not sending: verify SMTP settings
 
 Websocket failures: check Pusher credentials or CORS settings
+
+Helpful commands:
+
+bash
+
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+php artisan view:clear
+php artisan queue:work --tries=3
+Roadmap
