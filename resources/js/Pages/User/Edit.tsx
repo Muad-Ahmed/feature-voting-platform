@@ -18,8 +18,6 @@ export default function Show({
   user: User;
   roleLabels: Record<string, string>;
 }) {
-  console.log(roles);
-
   const { data, setData, processing, errors, put } = useForm({
     name: user.name,
     email: user.email,

@@ -1,7 +1,6 @@
 import { InertiaLinkProps, Link } from "@inertiajs/react";
 
 export default function ResponsiveNavLink({
-  prefetch,
   active = false,
   className = "",
   children,
@@ -9,7 +8,6 @@ export default function ResponsiveNavLink({
 }: InertiaLinkProps & { active?: boolean }) {
   return (
     <Link
-      prefetch
       {...props}
       className={`flex w-full items-start border-l-4 py-2 pe-4 ps-3 ${
         active

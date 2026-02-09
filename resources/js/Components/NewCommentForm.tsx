@@ -32,7 +32,7 @@ export default function NewCommentForm({ feature }: { feature: Feature }) {
   return (
     <form
       onSubmit={createComment}
-      className="flex items-center py-2 rounded-lg bg-gray-50 dark:bg-gray-800 mb-4"
+      className="flex items-end gap-4 py-2 rounded-lg bg-gray-50 dark:bg-gray-800 mb-4"
     >
       <TextAreaInput
         rows={1}
