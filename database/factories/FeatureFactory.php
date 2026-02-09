@@ -18,8 +18,8 @@ class FeatureFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->text(),
-            'description' => fake()->text(2000),
+            'name' => fake()->text(150),
+            'description' => fake()->text(1500),
             'user_id' => User::where('email', 'admin@example.com')->first()->id,
         ];
     }
