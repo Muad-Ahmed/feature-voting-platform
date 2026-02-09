@@ -33,7 +33,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('feature.index', absolute: false));
+        return redirect()->intended(route('feature.index', absolute: false))
+            ->with('success', "You're logged in!");
     }
 
     /**

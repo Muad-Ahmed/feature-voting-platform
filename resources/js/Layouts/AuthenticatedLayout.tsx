@@ -33,12 +33,6 @@ export default function Authenticated({
 
               <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                 <NavLink
-                  href={route("dashboard")}
-                  active={route().current("dashboard")}
-                >
-                  Dashboard
-                </NavLink>
-                <NavLink
                   prefetch={["mount", "hover"]}
                   href={route("feature.index")}
                   active={route().current("feature.index")}
@@ -146,12 +140,6 @@ export default function Authenticated({
         >
           <div className="space-y-1 pb-3 pt-2">
             <ResponsiveNavLink
-              href={route("dashboard")}
-              active={route().current("dashboard")}
-            >
-              Dashboard
-            </ResponsiveNavLink>
-            <ResponsiveNavLink
               href={route("feature.index")}
               active={route().current("feature.index")}
             >
@@ -204,7 +192,7 @@ export default function Authenticated({
       <div className="py-12">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
           {success && (
-            <div className="bg-emerald-500 py-4 px-6 rounded mb-8">
+            <div className="fixed top-6 right-6 z-50 min-w-48 bg-emerald-600 text-white px-6 py-3 rounded-lg shadow-lg font-medium">
               {success}
             </div>
           )}
