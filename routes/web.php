@@ -11,7 +11,7 @@ use Inertia\Inertia;
 use App\Enum\RolesEnum;
 use App\Http\Controllers\UserController;
 
-Route::redirect('/', '/dashboard');
+Route::redirect('/', '/feature');
 
 
 Route::middleware('auth')->group(function () {
@@ -38,9 +38,12 @@ Route::middleware('auth')->group(function () {
         )
     ])->group(function () {
 
+        // Use feature index as the default dashboard.
+        // Note: I should update all route references in the project to 'feature.index' later.
         Route::get('/dashboard', function () {
-            return Inertia::render('Dashboard');
+            return redirect()->route('feature.index');
         })->name('dashboard');
+
         Route::resource('feature', FeatureController::class)
             ->except(['index', 'show'])
             ->middleware('can:' . PermissionsEnum::ManageFeatures->value);
