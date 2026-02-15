@@ -353,11 +353,30 @@ Websocket failures: check Pusher credentials or CORS settings
 
 Helpful commands:
 
-bash
+```bash
 
 php artisan config:clear
 php artisan cache:clear
 php artisan route:clear
 php artisan view:clear
 php artisan queue:work --tries=3
+
+```
+
 Roadmap
+
+
+Planned releases:
+
+v1.1 — advanced notifications, improved comments
+
+v1.2 — analytics dashboard, export tools
+
+v1.3 — multi-project support
+
+v2.0 — mobile-first redesign + full API mode
+
+Contributing
+Workflow:
+
+Fork the repo
