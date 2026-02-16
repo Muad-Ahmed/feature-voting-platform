@@ -380,3 +380,27 @@ Contributing
 Workflow:
 
 Fork the repo
+
+
+
+Create a branch:
+
+```bash
+
+git checkout -b feat/your-feature
+
+```
+
+Implement changes + write tests
+
+Commit and push
+
+Open a Pull Request
+
+Contribution checklist:
+
+Follow coding standards
+
+Include tests for relevant changes
+
+Update documentation when needed
