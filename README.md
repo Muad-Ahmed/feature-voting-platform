@@ -404,3 +404,16 @@ Follow coding standards
 Include tests for relevant changes
 
 Update documentation when needed
+
+Coding Standards
+PHP: PSR-12, static analysis with PHPStan/Psalm
+
+JS/React: ESLint + Prettier
+
+Prefer modular and testable code
+
+Keep business logic separated from UI layers
+
+FAQ
+Can anonymous users submit feature requests?
+By default, no—but it can be enabled with added protections.
