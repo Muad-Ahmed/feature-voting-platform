@@ -417,3 +417,14 @@ Keep business logic separated from UI layers
 FAQ
 Can anonymous users submit feature requests?
 By default, no—but it can be enabled with added protections.
+
+
+How do you handle duplicate suggestions?
+Admins can merge or close similar proposals, and fuzzy-matching can be enabled.
+
+Can users retract their votes?
+Yes—vote modification is supported with an optional cooldown.
+
+Daily Updates (Automated Section)
+This section is reserved for daily logs.
+Your automation script may append new entries below this marker.
