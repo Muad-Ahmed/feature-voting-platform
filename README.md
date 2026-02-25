@@ -353,11 +353,98 @@ Websocket failures: check Pusher credentials or CORS settings
 
 Helpful commands:
 
-bash
+```bash
 
 php artisan config:clear
 php artisan cache:clear
 php artisan route:clear
 php artisan view:clear
 php artisan queue:work --tries=3
+
+```
+
 Roadmap
+
+
+Planned releases:
+
+v1.1 — advanced notifications, improved comments
+
+v1.2 — analytics dashboard, export tools
+
+v1.3 — multi-project support
+
+v2.0 — mobile-first redesign + full API mode
+
+Contributing
+Workflow:
+
+Fork the repo
+
+
+
+Create a branch:
+
+```bash
+
+git checkout -b feat/your-feature
+
+```
+
+Implement changes + write tests
+
+Commit and push
+
+Open a Pull Request
+
+Contribution checklist:
+
+Follow coding standards
+
+Include tests for relevant changes
+
+Update documentation when needed
+
+Coding Standards
+PHP: PSR-12, static analysis with PHPStan/Psalm
+
+JS/React: ESLint + Prettier
+
+Prefer modular and testable code
+
+Keep business logic separated from UI layers
+
+FAQ
+Can anonymous users submit feature requests?
+By default, no—but it can be enabled with added protections.
+
+
+How do you handle duplicate suggestions?
+Admins can merge or close similar proposals, and fuzzy-matching can be enabled.
+
+Can users retract their votes?
+Yes—vote modification is supported with an optional cooldown.
+
+Daily Updates (Automated Section)
+This section is reserved for daily logs.
+Your automation script may append new entries below this marker.
+
+
+<!--PARAGRAPH-->
+2026/02/21
+Summary of your work, learning notes, observations.
+
+Contact
+Issues & suggestions:
+https://github.com/Muad-Ahmed/feature-voting-platform/issues
+
+Email:
+muad@example.com
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Thank you for contributing to the Feature Voting Platform. Consistent documentation and daily updates help keep the project active and maintainable.
+
+
+
