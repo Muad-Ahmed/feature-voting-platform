@@ -111,6 +111,24 @@ export default function Login({
           <PrimaryButton disabled={processing}>Log in</PrimaryButton>
         </div>
       </form>
+      {/* Demo page button */}
+      <div className="relative my-8">
+        <div className="absolute inset-0 flex items-center">
+          <span className="w-full border-t border-gray-200 dark:border-gray-700"></span>
+        </div>
+        <div className="relative flex justify-center text-xs uppercase">
+          <span className="bg-white px-4 text-gray-400 dark:bg-gray-800 font-bold tracking-widest">
+            OR
+          </span>
+        </div>
+      </div>
+
+      <Link
+        href={route("landing")}
+        className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-slate-900 bg-slate-900 px-6 py-4 text-sm font-black text-white transition-all hover:bg-white hover:text-slate-900 active:scale-[0.99] dark:border-blue-500 dark:bg-blue-600 dark:hover:bg-transparent dark:hover:text-blue-400"
+      >
+        GO TO DEMO PAGE
+      </Link>
     </GuestLayout>
   );
 }
