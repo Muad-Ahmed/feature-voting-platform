@@ -11,7 +11,10 @@ use Inertia\Inertia;
 use App\Enum\RolesEnum;
 use App\Http\Controllers\UserController;
 
-Route::redirect('/', '/feature');
+// Route::redirect('/', '/feature');
+
+Route::get('/', fn() => Inertia::render('Landing/LandingPage'))->name('landing');
+Route::get('landing', fn() => Inertia::render('Landing/LandingPage'));
 
 
 Route::middleware('auth')->group(function () {
@@ -69,3 +72,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/demo.php';

@@ -60,6 +60,16 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@example.com',
         ])->assignRole(RolesEnum::Admin);
 
+        User::factory()->create([
+            'name' => 'Muad',
+            'email' => 'muad@example.com',
+        ])->assignRole(RolesEnum::Admin);
+
+        User::factory()->create([
+            'name' => 'John',
+            'email' => 'john@example.com',
+        ])->assignRole(RolesEnum::User);
+
         Feature::factory(100)->create();
     }
 }
