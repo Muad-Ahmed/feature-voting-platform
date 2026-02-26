@@ -25,7 +25,12 @@ class AuthUserResource extends JsonResource
                 ->map(function ($permission) {
                     return $permission->name;
                 }),
-            'roles' => $this->getRoleNames()
+            'roles' => $this->getRoleNames(),
+            'is_editable' => !in_array($this->email, [
+                'admin@example.com',
+                'user@example.com',
+                'commenter@example.com'
+            ]),
         ];
     }
 }

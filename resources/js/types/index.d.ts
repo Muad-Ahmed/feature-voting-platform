@@ -8,6 +8,7 @@ export interface User {
   created_at: string;
   permissions: string[];
   roles: string[];
+  is_editable: boolean;
 }
 
 export type PaginatedData<T = any> = {
@@ -35,7 +36,7 @@ export type Feature = {
 };
 
 export type PageProps<
-  T extends Record<string, unknown> = Record<string, unknown>
+  T extends Record<string, unknown> = Record<string, unknown>,
 > = T & {
   auth: {
     user: User;
