@@ -18,7 +18,14 @@ export default function Index({
         </h2>
       }
     >
-      <Head title="Features" />
+      {/* Inertia Head: Title and SEO Metadata */}
+      <Head>
+        <title>Features</title>
+        <meta
+          name="description"
+          content="Browse all available system features. View details, stay updated with real-time polling, and manage feature implementations."
+        />
+      </Head>
 
       {can(auth.user, "manage_features") && (
         <div className="mb-8 px-2 flex justify-center lg:justify-start">

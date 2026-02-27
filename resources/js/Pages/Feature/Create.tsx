@@ -32,7 +32,14 @@ export default function Show() {
         </h2>
       }
     >
-      <Head title="Create New Feature" />
+      {/* Inertia Head: Title and SEO Metadata */}
+      <Head>
+        <title>Create New Feature</title>
+        <meta
+          name="description"
+          content="Add a new feature to the system. Provide a name and a detailed description to help users understand the new functionality."
+        />
+      </Head>
 
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         {/* Modern full-width card */}

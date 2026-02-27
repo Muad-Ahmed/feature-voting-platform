@@ -32,7 +32,14 @@ export default function Edit({ feature }: { feature: Feature }) {
         </h2>
       }
     >
-      <Head title={"Edit Feature " + feature.name} />
+      {/* Inertia Head: Title and SEO Metadata */}
+      <Head>
+        <title>{"Edit Feature: " + feature.name}</title>
+        <meta
+          name="description"
+          content={`Update the details for "${feature.name}". Modify the name or description to keep the feature information accurate and up to date.`}
+        />
+      </Head>
 
       <div className="max-w-full mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <div className="overflow-hidden bg-white shadow-md sm:rounded-xl dark:bg-gray-800 border border-gray-100 dark:border-gray-700">

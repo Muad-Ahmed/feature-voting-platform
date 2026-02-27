@@ -7,7 +7,14 @@ export default function LandingPage() {
 
   return (
     <main className="min-h-screen bg-slate-100 text-slate-900 selection:bg-blue-100 selection:text-blue-700">
-       <Head title="Demo" />
+      {/* Inertia Head: Title and SEO Metadata */}
+      <Head>
+        <title>VoteFlow - Community-Driven Feature Voting Platform</title>
+        <meta
+          name="description"
+          content="VoteFlow is a full-stack feature voting platform built with Laravel 11, React, and Inertia.js. Empowers communities to submit, discuss, and prioritize features with a robust role-based access system."
+        />
+      </Head>
       {/* =======================
                 Top Bar
           ======================= */}

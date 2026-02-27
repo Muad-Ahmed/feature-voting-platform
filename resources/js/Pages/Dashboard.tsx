@@ -10,7 +10,14 @@ export default function Dashboard() {
         </h2>
       }
     >
-      <Head title="Dashboard" />
+      {/* Inertia Head: Title and SEO Metadata */}
+      <Head>
+        <title>Dashboard</title>
+        <meta
+          name="description"
+          content="Welcome to your personal dashboard. Get a quick overview of your account status, recent activities, and access your management tools."
+        />
+      </Head>
 
       <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
         <div className="p-6 text-gray-900 dark:text-gray-100">

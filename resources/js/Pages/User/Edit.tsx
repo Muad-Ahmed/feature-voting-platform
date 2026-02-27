@@ -47,7 +47,14 @@ export default function Show({
         </h2>
       }
     >
-      <Head title={"Edit User " + user.name} />
+      {/* Inertia Head: Title and SEO Metadata */}
+      <Head>
+        <title>{"Edit User: " + user.name}</title>
+        <meta
+          name="description"
+          content={`Manage user account settings for "${user.name}". Update system roles and permissions to ensure correct access levels.`}
+        />
+      </Head>
 
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         {/* Modern glassmorphism container */}

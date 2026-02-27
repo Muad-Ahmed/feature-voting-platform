@@ -23,7 +23,14 @@ export default function Show({
         </h2>
       }
     >
-      <Head title={"Feature " + feature.name} />
+      {/* Inertia Head: Title and SEO Metadata */}
+      <Head>
+        <title>{"Feature: " + feature.name}</title>
+        <meta
+          name="description"
+          content={`Explore the details of "${feature.name}". Join the discussion, vote on this feature, and see what the community is saying about its implementation.`}
+        />
+      </Head>
 
       <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         {/* Main Content Card */}
