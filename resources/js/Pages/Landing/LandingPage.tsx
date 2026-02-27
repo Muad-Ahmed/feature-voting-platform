@@ -1,4 +1,4 @@
-import { Link } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import { useState } from "react";
 import TechStackModal from "./TechStackModal";
 
@@ -7,7 +7,7 @@ export default function LandingPage() {
 
   return (
     <main className="min-h-screen bg-slate-100 text-slate-900 selection:bg-blue-100 selection:text-blue-700">
-           
+       <Head title="Demo" />
       {/* =======================
                 Top Bar
           ======================= */}
@@ -96,7 +96,7 @@ export default function LandingPage() {
             <button
               type="button"
               onClick={() => setShowTechStack(true)}
-              className="mt-6 w-full md:w-5/6 inline-flex items-center justify-center gap-3 rounded-2xl bg-white border-2  px-10 py-4 text-sm font-black shadow-sm transition-all border-blue-400 text-blue-600 hover:shadow-md active:scale-[0.98]"
+              className="mt-6 w-full md:w-5/6 inline-flex items-center justify-center gap-3 rounded-2xl bg-white border-2 px-10 py-4 text-sm font-black transition-all border-blue-400 text-blue-600 shadow-[0_10px_30px_rgba(30,64,175,0.2)] hover:shadow-[0_15px_35px_rgba(30,64,175,0.3)] hover:-translate-y-1 active:scale-[0.98]"
             >
               <span className="text-xl">🛠️</span>
               VIEW TECHNICAL ARCHITECTURE & STACK
