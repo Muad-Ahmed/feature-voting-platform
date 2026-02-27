@@ -47,7 +47,7 @@ export default function Authenticated({
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 justify-between">
-            <div className="flex">
+            <div className="flex h-full">
               <div className="flex shrink-0 items-center">
                 <Link
                   href="/"
@@ -56,22 +56,69 @@ export default function Authenticated({
                   <ApplicationLogo className="block h-9 w-auto fill-current text-blue-600 dark:text-blue-400" />
                 </Link>
               </div>
-
-              <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+              \{" "}
+              <div className="hidden sm:-my-px sm:ms-12 sm:flex items-center h-full space-x-6">
+                {/* Features button*/}
                 <NavLink
                   prefetch={["mount", "hover"]}
                   href={route("feature.index")}
                   active={route().current("feature.index")}
+                  className={`relative inline-flex items-center justify-center gap-3 px-8 h-12 rounded-lg transition-all duration-300 border backdrop-blur-md shadow-lg ${
+                    route().current("feature.index")
+                      ? "bg-blue-600/20 border-blue-400/50 text-blue-100 shadow-blue-500/10 scale-105"
+                      : "bg-white/10 border-white/20 text-slate-200 hover:bg-white/20 hover:scale-105 hover:text-white"
+                  }`}
                 >
-                  Features
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m21 16-4 4-4-4" />
+                    <path d="M17 20V4" />
+                    <path d="m3 8 4-4 4 4" />
+                    <path d="M7 4v16" />
+                  </svg>
+                  <span className="font-bold tracking-widest uppercase text-sm whitespace-nowrap">
+                    Features
+                  </span>
                 </NavLink>
+
+                {/*Users button */}
                 {can(user, "manage_users") && (
                   <NavLink
                     prefetch
                     href={route("user.index")}
                     active={route().current("user.index")}
+                    className={`relative inline-flex items-center justify-center gap-3 px-8 h-12 rounded-lg transition-all duration-300 border backdrop-blur-md shadow-lg ${
+                      route().current("user.index")
+                        ? "bg-orange-600/20 border-orange-400/50 text-orange-100 shadow-orange-500/10 scale-105"
+                        : "bg-white/10 border-white/20 text-slate-200 hover:bg-white/20 hover:scale-105 hover:text-white"
+                    }`}
                   >
-                    Users
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5 shrink-0"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                    <span className="font-bold tracking-widest uppercase text-sm whitespace-nowrap">
+                      Users
+                    </span>
                   </NavLink>
                 )}
               </div>
