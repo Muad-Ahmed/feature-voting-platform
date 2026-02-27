@@ -11,7 +11,14 @@ export default function Index({ auth, users }: PageProps<{ users: User[] }>) {
         </h2>
       }
     >
-      <Head title="Users" />
+      {/* Inertia Head: Title and SEO Metadata */}
+      <Head>
+        <title>Users Management</title>
+        <meta
+          name="description"
+          content="Access the user directory to manage accounts, view registration dates, and assign system roles. Overview of all registered members and their access levels."
+        />
+      </Head>
 
       <div className="py-6 px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden shadow-sm md:rounded-lg border-none md:border md:border-gray-200 md:dark:border-gray-700">
