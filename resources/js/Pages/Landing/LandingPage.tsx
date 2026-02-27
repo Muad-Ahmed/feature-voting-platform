@@ -117,7 +117,7 @@ export default function LandingPage() {
               as="button"
               className="group relative inline-flex items-center justify-center overflow-hidden rounded-xl bg-blue-600 px-8 py-5 text-sm font-black text-white shadow-2xl shadow-blue-500/40 transition-all hover:bg-blue-700 hover:scale-[1.05] active:scale-95 ring-4 ring-blue-500/20 animate-[bounce_3s_infinite]"
             >
-              <span className="mr-2">Login as Admin</span>
+              <span className="mr-2">Enter demo as Admin</span>
               <span className="transition-transform group-hover:translate-x-1">
                 →
               </span>
@@ -140,7 +140,7 @@ export default function LandingPage() {
               as="button"
               className="group relative inline-flex items-center justify-center overflow-hidden rounded-xl bg-slate-800 px-8 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:bg-slate-900 active:scale-95 opacity-90 hover:opacity-100"
             >
-              <span className="mr-2 text-xs">Login as Commenter</span>
+              <span className="mr-2 text-xs">Enter demo as Commenter</span>
               <span className="transition-transform group-hover:translate-x-1 text-xs">
                 →
               </span>
@@ -152,7 +152,7 @@ export default function LandingPage() {
               as="button"
               className="group relative inline-flex items-center justify-center overflow-hidden rounded-xl bg-slate-800 px-8 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:bg-slate-900 active:scale-95 opacity-90 hover:opacity-100"
             >
-              <span className="mr-2 text-xs">Login as User</span>
+              <span className="mr-2 text-xs">Enter demo as User</span>
               <span className="transition-transform group-hover:translate-x-1 text-xs">
                 →
               </span>
@@ -296,7 +296,7 @@ export default function LandingPage() {
               as="button"
               className="col-span-2 rounded-xl bg-blue-600 px-8 py-4 text-sm font-bold text-white text-center transition-all hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30"
             >
-              Login as Admin
+              Enter demo as Admin
             </Link>
 
             <Link
@@ -305,7 +305,7 @@ export default function LandingPage() {
               as="button"
               className="rounded-xl bg-white/10 px-4 py-4 text-sm font-bold text-white text-center backdrop-blur-sm transition-all hover:bg-white/20"
             >
-              Login as Commenter
+              Enter demo as Commenter
             </Link>
 
             <Link
@@ -314,7 +314,7 @@ export default function LandingPage() {
               as="button"
               className="rounded-xl bg-white/10 px-4 py-4 text-sm font-bold text-white text-center backdrop-blur-sm transition-all hover:bg-white/20"
             >
-              Login as User
+              Enter demo as User
             </Link>
           </div>
                  
