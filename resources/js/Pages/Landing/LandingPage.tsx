@@ -1,6 +1,7 @@
 import { Head, Link } from "@inertiajs/react";
 import { useState } from "react";
 import TechStackModal from "./TechStackModal";
+import ChatbotWidget from "@/Components/ChatbotWidget";
 
 export default function LandingPage() {
   const [showTechStack, setShowTechStack] = useState(false);
@@ -18,54 +19,54 @@ export default function LandingPage() {
       {/* =======================
                 Top Bar
           ======================= */}
-           
+
       <header className="sticky top-0 z-50 border-b  border-slate-400/30 backdrop-blur-md">
-               
+
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-                   
+
           <div className="flex items-center gap-4">
-                       
+
             <div className="flex items-center gap-2">
-                           
+
               <div className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
-                               
-                <span className="text-white font-bold text-sm">V</span>         
-                   
+
+                <span className="text-white font-bold text-sm">V</span>
+
               </div>
-                           
+
               <span className="text-sm font-bold tracking-tight text-slate-800 uppercase">
-                                VoteFlow              
+                VoteFlow
               </span>
-                         
+
             </div>
-                       
+
             <span className="hidden sm:inline-block h-4 w-[1px] bg-slate-200"></span>
-                       
+
             <span className="hidden sm:inline-block rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-blue-600 border border-blue-100">
-                            Demo Application            
+              Demo Application
             </span>
-                     
+
           </div>
-                   
+
           <div className="flex items-center gap-6">
-                                 
+
             <Link
               href={route("login")}
               className="text-sm font-bold text-slate-700 hover:text-slate-900 border-l pl-6 border-slate-200"
             >
-                            Login            
+              Login
             </Link>
-                     
+
           </div>
-                 
+
         </div>
-             
+
       </header>
-           
+
       {/* =======================
                 Hero Section
           ======================= */}
-           
+
       <section className="relative overflow-hidden pt-24 pb-20">
         {/* Background Blur Decoration */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
@@ -180,64 +181,64 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-           
+
       {/* =======================
                 Core Features
           ======================= */}
-           
+
       <section className="mx-auto max-w-7xl px-6 py-14">
-               
+
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-                   
+
           <FeatureCard
             icon="🗳️"
             title="Feature Voting System"
             description="Upvote and downvote proposed features with instant feedback and dynamic ranking."
           />
-                   
+
           <FeatureCard
             icon="💬"
             title="Feature-Based Comment System"
             description="Comments scoped per feature to capture qualitative feedback."
           />
-                   
+
           <FeatureCard
             icon="🛡️"
             title="Three-Tier Role System"
             description="User, Commenter, and Admin roles managed via permissions."
           />
-                   
+
           <FeatureCard
             icon="🚀"
             title="Server-Side Rendering"
             description="Fully SSR-enabled for performance, accessibility, and SEO optimization."
           />
-                 
+
         </div>
-             
+
       </section>
-           
+
       {/* =======================
                 Roles Section
           ======================= */}
-           
+
       <section className="mx-auto max-w-7xl px-6 py-24">
-               
+
         <div className="text-center max-w-2xl mx-auto mb-16">
-                   
+
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                        One Platform, Three Personas          
+            One Platform, Three Personas
           </h2>
-                   
+
           <p className="mt-4 text-slate-600">
             Experience how permissions dynamically change the UI based
-            onassigned roles.          
+            onassigned roles.
           </p>
-                 
+
         </div>
-               
+
         <div className="grid gap-8 md:grid-cols-3">
-                   
+
           <RoleCard
             role="Regular User"
             color="blue"
@@ -247,13 +248,13 @@ export default function LandingPage() {
               "Assigned automatically on registration",
             ]}
           />
-                   
+
           <RoleCard
             role="Commenter"
             color="indigo"
             items={["All User permissions", "Post and manage comments"]}
           />
-                   
+
           <RoleCard
             role="Admin"
             color="slate"
@@ -263,32 +264,32 @@ export default function LandingPage() {
               "Assign and update user roles",
             ]}
           />
-                 
+
         </div>
-             
+
       </section>
-           
+
       {/* =======================
                 Demo Access CTA
           ======================= */}
-           
+
       <section className="mx-6 mb-20">
-               
+
         <div className="mx-auto max-w-5xl rounded-[2.5rem] bg-slate-900 p-12 text-center shadow-3xl relative overflow-hidden">
-                    {/* Decorative circles */}         
+          {/* Decorative circles */}
           <div className="absolute top-0 right-0 h-32 w-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
-                   
+
           <div className="absolute bottom-0 left-0 h-24 w-24 bg-blue-500/10 rounded-full -ml-12 -mb-12"></div>
-                   
+
           <h3 className="text-3xl font-bold text-white">
-                        Ready to test the architecture?          
+            Ready to test the architecture?
           </h3>
-                   
+
           <p className="mx-auto mt-4 max-w-xl text-slate-400">
-                        Access the full functionality using preconfigured demo
-            accounts.          
+            Access the full functionality using preconfigured demo
+            accounts.
           </p>
-                   
+
           <div className="mt-10 grid grid-cols-2 gap-4 w-full max-w-md mx-auto">
             <Link
               href={route("demo.quick-login", { role: "admin" })}
@@ -317,48 +318,48 @@ export default function LandingPage() {
               Enter demo as User
             </Link>
           </div>
-                 
+
         </div>
-             
+
       </section>
-           
+
       {/* =======================
                 Footer
           ======================= */}
-           
+
       <footer className="border-t border-slate-300 bg-slate-200 py-12">
-               
+
         <div className="mx-auto max-w-7xl px-6 text-center">
-                   
+
           <p className="text-sm font-medium text-slate-500">
-                        Demo project built to showcase            
+            Demo project built to showcase
             <span className="text-slate-900">
               {" "}
               full-stack architecture, role-based access control, and SSR with
-              Inertia.js.           
+              Inertia.js.
             </span>
-                     
+
           </p>
-                   
+
           <p className="mt-2 text-xs text-slate-400 uppercase tracking-widest font-bold">
-                        Full Stack Showcase 2026          
+            Full Stack Showcase 2026
           </p>
-                 
+
         </div>
-             
+
       </footer>
-           
+
       <TechStackModal
         open={showTechStack}
         onClose={() => setShowTechStack(false)}
       />
-         
+      <ChatbotWidget />
     </main>
   );
 }
 
 /* =======================
-    Sub Components
+    Sub Components
 ======================= */
 
 function FeatureCard({
@@ -372,15 +373,15 @@ function FeatureCard({
 }) {
   return (
     <div className="group rounded-2xl border-t-2 border-t-blue-500 border-x border-b border-slate-200  bg-white/70 backdrop-blur-md border shadow-sm bg-slate-200 p-8  transition-all hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/5 hover:-translate-y-1">
-           
+
       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 text-2xl transition-colors group-hover:bg-blue-50">
-                {icon}     
+        {icon}
       </div>
-            <h3 className="text-lg font-bold text-slate-800">{title}</h3>     
+      <h3 className="text-lg font-bold text-slate-800">{title}</h3>
       <p className="mt-3 text-sm leading-relaxed text-slate-500">
-                {description}     
+        {description}
       </p>
-         
+
     </div>
   );
 }
@@ -402,28 +403,28 @@ function RoleCard({
 
   return (
     <div className="rounded-2xl border-t-2 border-t-blue-500 border-x border-b border-slate-200 border bg-white/70 backdrop-blur-md   shadow-sm  bg-slate-200 p-8  relative overflow-hidden group">
-           
+
       <div
         className={`absolute top-0 right-0 px-4 py-1 rounded-bl-xl text-[10px] font-black uppercase tracking-tighter ${colors[color]}`}
       >
-                {role.split(" ")[0]}     
+        {role.split(" ")[0]}
       </div>
-            <h4 className="text-xl font-bold text-slate-800">{role}</h4>     
+      <h4 className="text-xl font-bold text-slate-800">{role}</h4>
       <ul className="mt-6 space-y-4">
-               
+
         {items.map((item, index) => (
           <li
             key={index}
             className="flex items-start gap-3 text-sm text-slate-600"
           >
-                       
+
             <span className="mt-1 flex h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" />
-                        {item}         
+            {item}
           </li>
         ))}
-             
+
       </ul>
-         
+
     </div>
   );
 }
