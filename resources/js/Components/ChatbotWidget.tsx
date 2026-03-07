@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+// @ts-ignore
 import ChatBot from "react-simple-chatbot";
+// @ts-ignore
 import { ThemeProvider } from "styled-components";
 import axios from "axios";
 
@@ -68,9 +70,10 @@ export default function ChatbotWidget() {
         {
             id: "suggestions",
             options: [
-                { value: "What features are planned?", label: "What features are planned?", trigger: "fetch_response" },
-                { value: "How do I upvote a feature?", label: "How do I upvote a feature?", trigger: "fetch_response" },
-                { value: "I have another question", label: "I have another question", trigger: "user_input" },
+                { value: "What is VoteFlow built with?", label: "🛠️ What's the tech stack?", trigger: "fetch_response" },
+                { value: "How do I submit a new feature?", label: "💡 How do I suggest a feature?", trigger: "fetch_response" },
+                { value: "How does the voting system work?", label: "🗳️ How do I vote?", trigger: "fetch_response" },
+                { value: "I need help with something else", label: "💬 Other questions", trigger: "user_input" },
             ],
         },
         {
