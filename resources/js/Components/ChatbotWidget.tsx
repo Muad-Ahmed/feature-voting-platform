@@ -96,57 +96,105 @@ export default function ChatbotWidget() {
                 className={`transition-all duration-300 origin-bottom-right ${isOpen ? "opacity-100 scale-100 mb-4 visible" : "opacity-0 scale-90 invisible h-0 mb-0"
                     }`}
             >
-                <div className="shadow-2xl rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                <div className="shadow-2xl rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white">
                     <ThemeProvider theme={theme}>
                         <ChatBot
                             steps={steps}
-                            headerTitle="AI Assistant"
+                            headerTitle={
+                                <div className="flex items-center gap-2 py-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-400 fill-yellow-400">
+                                        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                                    </svg>
+                                    <span className="font-bold tracking-tight text-white">AI Assistant</span>
+                                </div>
+                            }
                             hideSubmitButton={false}
-                            placeholder="Type your message..."
-                            width="350px"
-                            height="450px"
-                            // Adding custom styles via style prop since react-simple-chatbot doesn't naturally accept className
-                            style={{ fontFamily: "inherit" }}
-                            bubbleStyle={{ fontSize: "14px", lineHeight: "1.5" }}
+                            placeholder="Ask me anything..."
+                            width="380px"
+                            height="500px"
+                            style={{
+                                fontFamily: "inherit",
+                                borderRadius: "1rem",
+                            }}
+                            headerStyle={{
+                                padding: "1.25rem",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                                background: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
+                            }}
+                            footerStyle={{
+                                padding: "0.5rem",
+                                borderTop: "1px solid #f3f4f6",
+                                background: "#ffffff",
+                            }}
+                            inputStyle={{
+                                borderRadius: "0.75rem",
+                                border: "1px solid #e5e7eb",
+                                padding: "0.75rem 1rem",
+                                fontSize: "14px",
+                                outline: "none",
+                                boxShadow: "none",
+                                width: "calc(100% - 0.5rem)",
+                                background: "#f9fafb",
+                                color: "#374151"
+                            }}
+                            bubbleStyle={{
+                                fontSize: "14px",
+                                lineHeight: "1.5",
+                                borderRadius: "1rem",
+                                padding: "0.75rem 1rem",
+                            }}
+                            contentStyle={{
+                                height: "calc(500px - 130px)", // Ensure space for header and input
+                                padding: "1rem",
+                            }}
                         />
                     </ThemeProvider>
                 </div>
             </div>
 
-            {/* Floating Toggle Icon */}
+            {/* Floating Toggle Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center justify-center w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
+                style={{
+                    borderRadius: "100px",
+                }}
+                className={`flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white shadow-2xl transition-all duration-500 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-300
+                    ${isOpen ? "w-12 h-12" : "w-12 h-12 sm:w-[125px] sm:h-[40px] p-2 sm:pt-2 sm:pb-2 sm:pl-2 sm:pr-4"}
+                `}
                 aria-label="Toggle AI Chat"
             >
                 {isOpen ? (
-                    // Close Icon X
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         stroke="currentColor"
-                        className="w-6 h-6"
+                        className="w-5 h-5"
                     >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 ) : (
-                    // Chat Bubble Icon
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                    >
-                        <path
+                    <div className="flex items-center justify-center gap-2">
+                        {/* Beautiful Sparkle Icon */}
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"
-                        />
-                    </svg>
+                            className="text-yellow-300 fill-yellow-300 drop-shadow-sm animate-pulse"
+                        >
+                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                        </svg>
+                        <span className="hidden sm:inline-block text-[14px] font-bold tracking-wide whitespace-nowrap">
+                            Ask kodee
+                        </span>
+                    </div>
                 )}
             </button>
         </div>
