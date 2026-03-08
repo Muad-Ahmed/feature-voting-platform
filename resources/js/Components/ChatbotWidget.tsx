@@ -90,11 +90,11 @@ export default function ChatbotWidget() {
     ];
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none">
             {/* Chatbot Window Container */}
             <div
                 className={`transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] origin-bottom-right mb-4 ${isOpen
-                    ? "opacity-100 scale-100 translate-y-0 visible"
+                    ? "opacity-100 scale-100 translate-y-0 visible pointer-events-auto"
                     : "opacity-0 scale-95 translate-y-4 invisible pointer-events-none"
                     }`}
             >
@@ -172,7 +172,7 @@ export default function ChatbotWidget() {
                 style={{
                     borderRadius: "100px",
                 }}
-                className={`flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white shadow-2xl transition-all duration-500 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-300
+                className={`flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white shadow-2xl transition-all duration-500 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-300 pointer-events-auto
                     ${isOpen ? "w-12 h-12" : "w-12 h-12 sm:w-[125px] sm:h-[40px] p-2 sm:pt-2 sm:pb-2 sm:pl-2 sm:pr-4"}
                 `}
                 aria-label="Toggle AI Chat"
