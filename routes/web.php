@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Enum\RolesEnum;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ChatbotController;
 
 // Route::redirect('/', '/feature');
 
@@ -70,6 +71,8 @@ Route::middleware('auth')->group(function () {
             ->middleware('can:' . PermissionsEnum::ManageComments->value);
     });
 });
+
+Route::post('/chatbot/message', [ChatbotController::class, 'handleMessage'])->name('chatbot.message');
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/demo.php';

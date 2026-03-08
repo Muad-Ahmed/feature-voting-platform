@@ -1,6 +1,7 @@
 import ApplicationLogo from "@/Components/ApplicationLogo";
 import { Link } from "@inertiajs/react";
 import { PropsWithChildren } from "react";
+import ChatbotWidget from "@/Components/ChatbotWidget";
 
 export default function Guest({ children }: PropsWithChildren) {
   return (
@@ -23,6 +24,7 @@ export default function Guest({ children }: PropsWithChildren) {
           <div className="relative z-10">{children}</div>
         </div>
       </div>
+      <ChatbotWidget />
     </div>
   );
 }
