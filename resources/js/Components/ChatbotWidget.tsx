@@ -93,7 +93,9 @@ export default function ChatbotWidget() {
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
             {/* Chatbot Window Container */}
             <div
-                className={`transition-all duration-300 origin-bottom-right ${isOpen ? "opacity-100 scale-100 mb-4 visible" : "opacity-0 scale-90 invisible h-0 mb-0"
+                className={`transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] origin-bottom-right mb-4 ${isOpen
+                    ? "opacity-100 scale-100 translate-y-0 visible"
+                    : "opacity-0 scale-95 translate-y-4 invisible pointer-events-none"
                     }`}
             >
                 <div className="shadow-2xl rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white">
@@ -101,23 +103,39 @@ export default function ChatbotWidget() {
                         <ChatBot
                             steps={steps}
                             headerTitle={
-                                <div className="flex items-center gap-2 py-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-400 fill-yellow-400">
-                                        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-                                    </svg>
-                                    <span className="font-bold tracking-tight text-white">AI Assistant</span>
+                                <div className="flex items-center justify-between w-full pr-2 w-[360px]">
+                                    <div className="flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-400 fill-yellow-400">
+                                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                                        </svg>
+                                        <span className="font-bold tracking-tight text-white">AI Assistant</span>
+                                    </div>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setIsOpen(false);
+                                        }}
+                                        className="p-2 m-0 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all active:scale-90"
+                                        title="Close Chat"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M18 6 6 18M6 6l12 12" />
+                                        </svg>
+                                    </button>
                                 </div>
                             }
                             hideSubmitButton={false}
                             placeholder="Ask me anything..."
                             width="380px"
                             height="500px"
+                            floating={false}
                             style={{
                                 fontFamily: "inherit",
                                 borderRadius: "1rem",
+                                boxShadow: "none",
                             }}
                             headerStyle={{
-                                padding: "1.25rem",
+                                padding: "1rem 1.25rem",
                                 borderBottom: "1px solid rgba(255,255,255,0.1)",
                                 background: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
                             }}
@@ -142,10 +160,6 @@ export default function ChatbotWidget() {
                                 lineHeight: "1.5",
                                 borderRadius: "1rem",
                                 padding: "0.75rem 1rem",
-                            }}
-                            contentStyle={{
-                                height: "calc(500px - 130px)", // Ensure space for header and input
-                                padding: "1rem",
                             }}
                         />
                     </ThemeProvider>
