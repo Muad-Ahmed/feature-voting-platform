@@ -102,18 +102,32 @@ export default function ChatbotWidget() {
                 <div className="shadow-2xl rounded-2xl overflow-hidden border border-gray-200 bg-white flex flex-col" style={{ height: 500 }}>
                     {/* Header */}
                     <div
-                        className="flex items-center justify-between px-5 py-4 flex-shrink-0"
+                        className="relative flex items-center justify-between px-5 py-5 flex-shrink-0 overflow-hidden"
                         style={{ background: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)" }}
                     >
-                        <div className="flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-400 fill-yellow-400">
-                                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-                            </svg>
-                            <span className="font-bold text-white tracking-tight text-base">AI Assistant</span>
+                        {/* Decorative Mesh Gradient Blur */}
+                        <div className="absolute top-[-20px] left-[-20px] w-32 h-32 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+                        <div className="absolute bottom-[-20px] right-[-20px] w-32 h-32 bg-blue-400/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div className="relative flex items-center gap-3">
+                            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 border border-white/20 shadow-inner">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-300 drop-shadow-[0_0_8px_rgba(253,224,71,0.6)]">
+                                    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.937A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0l1.582 6.135A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z" />
+                                    <path d="M20 3a1 1 0 0 1 .707.293L21 3.593v.001l-.007.213a1 1 0 0 1-1.286.706L19.407 4.41l-.013-.003a1 1 0 0 1-.687-1.114l.007-.213a1 1 0 0 1 .98-.713l.306.003L20 3z" />
+                                    <path d="M18 19a1 1 0 0 1 .707.293l.293.293a1 1 0 0 1 .28.98l.007-.213a1 1 0 0 1-1.286.706l-.306-.094a1 1 0 0 1-.687-1.114l.007-.213a1 1 0 0 1 .98-.713l.306.003h-.3z" />
+                                </svg>
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="font-bold text-white tracking-tight text-base leading-tight">AI Assistant</span>
+                                <div className="flex items-center gap-1.5 mt-0.5">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_4px_rgba(74,222,128,0.8)]"></span>
+                                    <span className="text-[10px] uppercase tracking-widest font-bold text-white/60">Online Now</span>
+                                </div>
+                            </div>
                         </div>
                         <button
                             onClick={() => setIsOpen(false)}
-                            className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all active:scale-90"
+                            className="p-2.5 text-white/70 hover:text-white hover:bg-white/10 rounded-xl transition-all active:scale-90 border border-transparent hover:border-white/10"
                             title="Close Chat"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -234,8 +248,10 @@ export default function ChatbotWidget() {
                     </svg>
                 ) : (
                     <div className="flex items-center justify-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-300 fill-yellow-300 drop-shadow-sm animate-pulse">
-                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-300 drop-shadow-sm animate-pulse">
+                            <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.937A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0l1.582 6.135A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z" />
+                            <path d="M20 3a1 1 0 0 1 .707.293L21 3.593v.001l-.007.213a1 1 0 0 1-1.286.706L19.407 4.41l-.013-.003a1 1 0 0 1-.687-1.114l.007-.213a1 1 0 0 1 .98-.713l.306.003L20 3z" />
+                            <path d="M18 19a1 1 0 0 1 .707.293l.293.293a1 1 0 0 1 .28.98l.007-.213a1 1 0 0 1-1.286.706l-.306-.094a1 1 0 0 1-.687-1.114l.007-.213a1 1 0 0 1 .98-.713l.306.003h-.3z" />
                         </svg>
                         <span className="hidden sm:inline-block text-[14px] font-bold tracking-wide whitespace-nowrap">Ask kodee</span>
                     </div>
