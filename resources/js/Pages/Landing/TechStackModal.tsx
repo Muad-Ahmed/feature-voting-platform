@@ -13,34 +13,34 @@ export default function TechStackModal({
 
     return (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-\            <div
-                className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
+            <div
+                className="absolute inset-0 bg-slate-900/60 backdrop-blur-md transition-opacity"
                 onClick={onClose}
             />
 
             {/* Modal Container */}
-            <div className="relative z-10 flex flex-col max-h-[85vh] w-full max-w-3xl overflow-hidden rounded-[2rem] border border-white bg-slate-50 shadow-2xl">
-                
+            <div className="relative z-10 flex flex-col max-h-[85vh] w-full max-w-4xl overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/90 shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+
                 {/* Header */}
-                <div className="flex items-center justify-between border-b border-slate-200 bg-white/50 px-8 py-6 backdrop-blur-md">
+                <div className="flex items-center justify-between border-b border-slate-700/50 bg-slate-800/40 px-8 py-6 backdrop-blur-md">
                     <div>
-                        <h2 className="text-2xl font-black tracking-tight text-slate-900">
+                        <h2 className="text-3xl font-black tracking-tight text-white">
                             Architecture & Technical Overview
                         </h2>
-                        <p className="text-xs font-bold uppercase tracking-widest text-blue-600 mt-1">
+                        <p className="text-xs font-bold uppercase tracking-widest text-blue-400 mt-2">
                             System Specifications
                         </p>
                     </div>
                     <button
                         onClick={onClose}
-                        className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 text-slate-500 transition-colors hover:bg-red-100 hover:text-red-600"
+                        className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-slate-300 transition-all hover:bg-red-500/20 hover:text-red-400 hover:rotate-90"
                     >
-                        <span className="text-xl">✕</span>
+                        <span className="text-2xl">✕</span>
                     </button>
                 </div>
 
                 {/* Content*/}
-                <div className="overflow-y-auto px-8 py-8 scrollbar-thin scrollbar-thumb-slate-300">
+                <div className="overflow-y-auto px-8 py-8 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-transparent">
                     <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">
                         <Section
                             title="High-Level Architecture"
@@ -114,7 +114,7 @@ export default function TechStackModal({
                         />
 
                         <div className="md:col-span-2">
-                             <Section
+                            <Section
                                 title="Design Decisions"
                                 content={[
                                     "Stack chosen to balance performance, productivity, and maintainability.",
@@ -124,9 +124,9 @@ export default function TechStackModal({
                     </div>
 
                     {/* Footer Note*/}
-                    <div className="mt-12 rounded-2xl border border-blue-100 bg-blue-50/50 p-6 text-sm text-blue-800">
-                        <div className="flex gap-3">
-                            <span className="text-xl">💡</span>
+                    <div className="mt-12 rounded-2xl border border-blue-500/30 bg-blue-900/20 p-6 text-sm text-blue-200 backdrop-blur-sm">
+                        <div className="flex gap-4 items-center">
+                            <span className="text-3xl drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">💡</span>
                             <p className="leading-relaxed font-medium">
                                 This is a demo environment. Data may reset periodically
                                 and authentication is simplified for demonstration.
@@ -141,15 +141,15 @@ export default function TechStackModal({
 
 function Section({ title, content }: { title: string; content: string[] }) {
     return (
-        <section className="group">
-            <h3 className="mb-4 flex items-center gap-2 text-base font-bold text-slate-900">
-                <span className="h-1.5 w-1.5 rounded-full bg-blue-600 transition-all group-hover:scale-150" />
+        <section className="group rounded-2xl bg-white/5 border border-white/10 p-6 transition-all duration-300 hover:bg-white/10 hover:border-blue-500/30 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:-translate-y-1">
+            <h3 className="mb-5 flex items-center gap-3 text-lg font-black text-white">
+                <span className="h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] transition-all group-hover:scale-150" />
                 {title}
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
                 {content.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-[13px] leading-relaxed text-slate-600">
-                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-slate-300" />
+                    <li key={index} className="flex items-start gap-3 text-sm leading-relaxed text-slate-300 font-medium">
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-blue-400/60" />
                         {item}
                     </li>
                 ))}
