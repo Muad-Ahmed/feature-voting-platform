@@ -96,7 +96,7 @@ jobs:
             sudo -u www-data php artisan optimize
 
             # Reload PHP-FPM so new PHP files are picked up immediately
-            systemctl reload php8.2-fpm
+            systemctl reload php8.4-fpm
 
         
             supervisorctl restart vote-ssr
