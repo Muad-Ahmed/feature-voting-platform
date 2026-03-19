@@ -11,80 +11,93 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Node.js with npm cache (speeds up subsequent runs)
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
 
-      - name: Install dependencies
+      # Install JS deps & build (client + SSR bundles)
+      - name: Install JS dependencies
         run: npm ci
 
       - name: Build SSR + Vite
         run: npm run build
 
+      # Clean up files we do NOT want to upload
       - name: Clean before upload
         run: |
           rm -rf node_modules
           rm -rf .git
+          rm -f .env
 
+      # Upload to server via SCP
       - name: Upload to server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_IP }}
           username: root
           key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
           source: "."
           target: "/var/www/vote"
+          timeout: 120s
+          command_timeout: 30m
 
+      # Run post-deploy commands on server via SSH
       - name: Run deploy commands
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_IP }}
           username: root
           key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          command_timeout: 15m
           script: |
             set -e
 
             cd /var/www/vote
 
-            # ── Sanity check ──────────────────────────────────────────────────
+            # .env must exist on server (never committed to git)
             if [ ! -f .env ]; then
               echo "ERROR: .env is missing on the server. Aborting." >&2
               exit 1
             fi
 
-            # ── Fix ownership so www-data can read/write everything ───────────
-            # (root can chown freely; www-data cannot)
+            # Fix ownership: root uploads files, www-data must own them
             chown -R www-data:www-data /var/www/vote
-            chmod -R 755 /var/www/vote
+            find /var/www/vote -type f -exec chmod 644 {} \;
+            find /var/www/vote -type d -exec chmod 755 {} \;
             chmod -R 775 /var/www/vote/storage /var/www/vote/bootstrap/cache
 
-            # ── Install PHP dependencies as www-data ──────────────────────────
-            # Composer writes vendor/ → must be owned by www-data
+            # Install PHP dependencies as www-data
             sudo -u www-data composer install \
               --no-dev \
               --no-interaction \
               --prefer-dist \
               --optimize-autoloader
 
-            # ── Clear stale caches (run as www-data so cache files are owned correctly) ──
+            # Clear stale caches before applying new config
             sudo -u www-data php artisan config:clear
             sudo -u www-data php artisan route:clear
             sudo -u www-data php artisan view:clear
             sudo -u www-data php artisan cache:clear
 
-            # ── Run migrations ────────────────────────────────────────────────
+            # Run migrations
             sudo -u www-data php artisan migrate --force --no-interaction
 
-            # ── Create storage symlink (idempotent) ───────────────────────────
+            # Storage symlink (idempotent)
             sudo -u www-data php artisan storage:link --force
 
-            # ── Rebuild caches for production ─────────────────────────────────
+            # Rebuild all caches for production
             sudo -u www-data php artisan config:cache
             sudo -u www-data php artisan route:cache
             sudo -u www-data php artisan view:cache
             sudo -u www-data php artisan optimize
 
-            # ── Restart SSR process (supervisor runs as root) ─────────────────
+            # Reload PHP-FPM so new PHP files are picked up immediately
+            systemctl reload php8.2-fpm
+
+        
             supervisorctl restart vote-ssr
             supervisorctl status vote-ssr
