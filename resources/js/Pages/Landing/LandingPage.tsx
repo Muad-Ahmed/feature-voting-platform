@@ -1,10 +1,13 @@
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 import TechStackModal from "./TechStackModal";
 import ChatbotWidget from "@/Components/ChatbotWidget";
+import { PageProps } from "@/types";
 
 export default function LandingPage() {
   const [showTechStack, setShowTechStack] = useState(false);
+  const { props } = usePage<PageProps>();
+  const flashError = props.flash?.error;
 
   return (
     <main className="min-h-screen bg-[#030712] text-slate-200 selection:bg-blue-500/30 selection:text-white">
@@ -17,8 +20,8 @@ export default function LandingPage() {
         />
       </Head>
       {/* =======================
-                Top Bar
-          ======================= */}
+                Top Bar
+          ======================= */}
 
       <header className="sticky top-0 z-50 border-b border-white/5 bg-[#030712]/60 backdrop-blur-md">
 
@@ -63,6 +66,18 @@ export default function LandingPage() {
 
       </header>
 
+      {flashError && (
+        <div className="bg-red-500/10 border-b border-red-500/20 px-6 py-3 text-center">
+          <p className="text-sm font-medium text-red-500">{flashError}</p>
+        </div>
+      )}
+
+      {props.flash?.success && (
+        <div className="bg-green-500/10 border-b border-green-500/20 px-6 py-3 text-center">
+          <p className="text-sm font-medium text-green-500">{props.flash.success}</p>
+        </div>
+      )}
+
       {/* =======================
                 Hero Section
           ======================= */}
@@ -73,8 +88,8 @@ export default function LandingPage() {
           <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-indigo-500/20 rounded-full blur-[100px]"></div>
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
-          <div className="lg:col-span-7 flex flex-col items-start mt-[-2rem]">
+        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 xl:grid-cols-12 gap-12 items-center w-full">
+          <div className="xl:col-span-7 flex flex-col items-start mt-0 xl:mt-[-2rem]">
             <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
               Feature Voting Platform
               <br />
@@ -110,7 +125,7 @@ export default function LandingPage() {
             </button>
           </div>
 
-          <div className="lg:col-span-5 flex flex-col gap-4 lg:-translate-x-10 w-full max-w-sm lg:ml-auto mt-[-2rem]">
+          <div className="xl:col-span-5 flex flex-col gap-4 w-full max-w-sm xl:ml-auto mt-12 xl:mt-[-2rem]">
             <Link
               href={route("demo.quick-login", { role: "admin" })}
               method="post"
@@ -141,7 +156,10 @@ export default function LandingPage() {
                 as="button"
                 className="group relative flex-1 inline-flex items-center justify-center overflow-hidden rounded-xl bg-white/5 border border-white/10 px-2 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-xl active:scale-95"
               >
-                <span className="text-[11px] text-center">Enter demo as Commenter</span>
+                <span className="text-[11px] text-center">
+                  <span className="hidden sm:inline">Enter demo </span>
+                  as Commenter
+                </span>
               </Link>
 
               <Link
@@ -150,7 +168,10 @@ export default function LandingPage() {
                 as="button"
                 className="group relative flex-1 inline-flex items-center justify-center overflow-hidden rounded-xl bg-white/5 border border-white/10 px-2 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-xl active:scale-95"
               >
-                <span className="text-[11px] text-center">Enter demo as User</span>
+                <span className="text-[11px] text-center">
+                  <span className="hidden sm:inline">Enter demo </span>
+                  as User
+                </span>
               </Link>
             </div>
 
@@ -301,7 +322,8 @@ export default function LandingPage() {
               as="button"
               className="rounded-xl bg-white/5 border border-white/10 px-4 py-4 text-sm font-bold text-white text-center backdrop-blur-sm transition-all hover:bg-white/10"
             >
-              Enter demo as Commenter
+              <span className="hidden sm:inline">Enter demo </span>
+              as Commenter
             </Link>
 
             <Link
@@ -310,7 +332,8 @@ export default function LandingPage() {
               as="button"
               className="rounded-xl bg-white/5 border border-white/10 px-4 py-4 text-sm font-bold text-white text-center backdrop-blur-sm transition-all hover:bg-white/10"
             >
-              Enter demo as User
+              <span className="hidden sm:inline">Enter demo </span>
+              as User
             </Link>
           </div>
         </div>
