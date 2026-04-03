@@ -27,13 +27,13 @@ class VerifyEmailController extends Controller
         }
 
         if ($user->hasVerifiedEmail()) {
-            return redirect()->route('landing')->with('success', 'Email already verified.');
+            return redirect()->route('feature.index')->with('success', 'Email already verified.');
         }
 
         if ($user->markEmailAsVerified()) {
             event(new Verified($user));
         }
 
-        return redirect()->route('landing')->with('success', 'Email verified successfully. Welcome to VoteFlow!');
+        return redirect()->route('feature.index')->with('success', 'Email verified successfully. Welcome to VoteFlow!');
     }
 }
